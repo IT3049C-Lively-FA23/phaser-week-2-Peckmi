@@ -15,6 +15,7 @@
 
             var paddle1;
             var paddle2;
+            var ball;
 
             var ball_launched;
             var ball_velocity;
@@ -29,6 +30,9 @@
 
                 paddle1 = create_paddle(0,game.world.centerY);
                 paddle2 = create_paddle(game.world.width - 16,game.world.centerY);
+                ball = create_ball(game.world.centerX,game.world.centerY);
+
+                game.input.onDown.add(launch_ball, this);
             }
             function update(){
                 control_paddle(paddle1,game.input.y);
@@ -73,6 +77,7 @@
                     ball.body.velocity.x = -ball_velocity;
                     ball.body.velocity.y = ball_velocity;
                     ball_launched = true;
+                }
             }
 
         </script>
